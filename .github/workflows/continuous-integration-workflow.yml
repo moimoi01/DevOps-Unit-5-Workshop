@@ -16,9 +16,20 @@ jobs:
         with:
           node-version: '18'  # adjust if you're using another runtime
 
-      - name: Install dependencies
+      - name: Build
         run: |
           dotnet build
           cd DotnetTemplate.Web
-          pwd
+          echo "RUNNING NPM INSTALL"
           npm install
+          echo "RUNNING NPM BUILD"
+          npm build
+
+      - name: Test
+        run: |
+          dotnet test
+          cd DotnetTemplate.Web
+          echo "RUNNING NPM Test"
+          npm t
+          echo "RUNNING NPM Lint"
+          npm run lint
