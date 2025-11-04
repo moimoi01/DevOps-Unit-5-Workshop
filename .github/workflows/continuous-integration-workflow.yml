@@ -23,7 +23,7 @@ jobs:
           echo "RUNNING NPM INSTALL"
           npm install
           echo "RUNNING NPM BUILD"
-          npm build
+          npm run build
 
       - name: Test
         run: |
